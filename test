@@ -2,3 +2,179 @@ Git is a version control system
 Git is free software
 This a second edit
 this the windows edit
+
+bashrc
+export PS1="\[\033[0;33m\]\`if [[ \$? = "0" ]]; then echo "\\[\\033[32m\\]"; 
+else echo "\\[\\033[31m\\]"; fi\`[\u.\h: \`if [[ `pwd|wc -c|tr -d " "` > 18 ]]; 
+then echo "\\W"; else echo "\\w"; fi\`]\$\[\033[0m\]"
+
+vimrc
+set sw=4
+set ts=4
+set nu
+set ai
+set hlsearch
+set smarttab
+syntax on
+
+set cursorline "set under line for cursor
+func SetTitle()
+    ".sh files"
+    if &filetype == 'sh'
+        call setline(1,          "\#########################################################################")
+        call append(line("."),   "\# File Name: ".expand("%:t"))
+        call append(line(".")+1, "\# Author: WangWeilong")
+        call append(line(".")+2, "\# Created Time: ".strftime("%c"))
+        call append(line(".")+3, "\#########################################################################")
+        call append(line(".")+4, "\#!/bin/bash")
+        call append(line(".")+5, "")
+        call append(line(".")+6, "")
+    endif
+    if &filetype == 'kc'
+        call setline(1,          "\/******************************************************************************")
+        call append(line("."),    "* Copyright (C), 1988-2012, Huawei Tech. Co., Ltd.")
+        call append(line(".")+1,  "* File Name: ".expand("%:t"))
+        call append(line(".")+2,  "* Author: WangWeilong 00197866 Version:   Date:")
+        call append(line(".")+3,  "* Explanation:")
+        call append(line(".")+4,  "* Version:")
+        call append(line(".")+5,  "* Function List:")
+        call append(line(".")+6,  "* Histroy:")
+        call append(line(".")+7,  "* <author>      <time>      <version>     <desc>")
+        call append(line(".")+8,  "* wangweilong")
+        call append(line(".")+9,  "******************************************************************************/")
+        call append(line(".")+10, "#include <linux/module.h>")
+        call append(line(".")+11, "#include <linux/kernel.h>")
+        call append(line(".")+12, "#include <linux/init.h>")
+        call append(line(".")+13, "")
+        call append(line(".")+14, "")
+        call append(line(".")+15, "MODULE_AUTHOR(\"Wang Weilong\");")
+        call append(line(".")+16, "MODULE_DESCRIPTION(\"\");")
+        call append(line(".")+17, "MODULE_LICENSE(\"GPL\");")
+        call append(line(".")+18, "")
+        call append(line(".")+19, "")
+        call append(line(".")+20, "\/*****************************************************************************")
+        call append(line(".")+21, " * Function:")
+        call append(line(".")+22, " * Explanation: init module.")
+        call append(line(".")+23, " * Input: void")
+        call append(line(".")+24, " * Output:")
+        call append(line(".")+25, " * Return:")
+        call append(line(".")+26, " ****************************************************************************/")
+        call append(line(".")+27, "static int __init ".expand("%:r").expand("_init(void)"))
+        call append(line(".")+28, "{")
+        call append(line(".")+29, "    return 0;")
+        call append(line(".")+30, "}")
+        call append(line(".")+31, "")
+        call append(line(".")+32, "\/*****************************************************************************")
+        call append(line(".")+33, " * Function:")
+        call append(line(".")+34, " * Explanation: init module.")
+        call append(line(".")+35, " * Input: void")
+        call append(line(".")+36, " * Output:")
+        call append(line(".")+37, " * Return:")
+        call append(line(".")+38, " ****************************************************************************/")
+        call append(line(".")+39, "static void __exit ".expand("%:r").expand("_exit(void)"))
+        call append(line(".")+40, "{")
+        call append(line(".")+41, "    return;")
+        call append(line(".")+42, "}")
+        call append(line(".")+43, "")
+        call append(line(".")+44, "module_init(".expand("%:r").expand("_init);"))
+        call append(line(".")+45, "module_exit(".expand("%:r").expand("_exit);"))
+    endif
+    if &filetype == 'c'
+        call setline(1,          "\/******************************************************************************")
+        call append(line("."),   "* Copyright (C), 1988-2012, Huawei Tech. Co., Ltd.")
+        call append(line(".")+1, "* File Name: ".expand("%:t"))
+        call append(line(".")+2, "* Author: WangWeilong 00197866 Version:   Date:")
+        call append(line(".")+3, "* Explanation:")
+        call append(line(".")+4, "* Version:")
+        call append(line(".")+5, "* Function List:")
+        call append(line(".")+6, "* Histroy:")
+        call append(line(".")+7, "* <author>      <time>      <version>     <desc>")
+        call append(line(".")+8, "* wangweilong")
+        call append(line(".")+9, "******************************************************************************/")
+        call append(line(".")+10,"#include <stdio.h>")
+        call append(line(".")+11,"")
+        call append(line(".")+12,"int main(int argc, char **argv)")
+        call append(line(".")+13,"{")
+        call append(line(".")+14,"    return 0;")
+        call append(line(".")+15,"}")
+        call append(line(".")+16,"")
+    endif
+    "makefile files"
+    if &filetype == 'make'
+    call setline(1,          "obj-m := ")
+    call append(line("."),   "PWD := $(shell pwd) ")
+    call append(line(".")+1, "#CC := ")
+    call append(line(".")+2, "KERNELDIR ?= /lib/modules/2.6.32.12-0.7-default/build")
+    call append(line(".")+3, "#KERNELDIR ?= ")
+    call append(line(".")+4, "#ARCH ?= ")
+    call append(line(".")+5, "#CROSS_COMPILE ?= ")
+    call append(line(".")+6, "")
+    call append(line(".")+7, "default:")
+    call append(line(".")+8, "  $(MAKE) -C $(KERNELDIR) M=$(PWD) modules")
+    call append(line(".")+9, "  #$(MAKE) -C $(KERNELDIR) ARCH=$(ARCH) CROSS_COMPILE=$(CROSS_COMPILE) M=$(PWD) modules")
+    call append(line(".")+10, "clean:")
+    call append(line(".")+11, " rm -rf *.ko *.o Modules.* *.symvers *.mod.c .*cmd *.order .tmp* *.markers")
+    endif
+endfunc
+    "cursor move to the last line and the end of line when new a file
+highlight Comment ctermfg=blue guifg=blue
+autocmd BufNewFile  *   call SetTitle()
+autocmd BufNewFile * normal G
+
+
+
+#ssh
+#!/bin/bash
+
+MACHINE="dophin-a lory 10.67.55.40 \
+         dophin-b:public public 10.67.55.41 \
+         server-187.21 w00197866 10.67.187.21 \
+         server-187.23 w00197866 10.67.187.23 \
+         server-187.27 public 10.67.187.27 \
+         E6000:186.34 localci 10.67.186.34 \
+         176.75 w00197866 10.67.176.75 \
+         suse-10:55.76  lory 10.67.55.76 \
+         localci_deploy_176.123 root 10.67.176.123 \
+         ci rtos 10.67.175.207"
+declare -a HOST
+declare -a USER
+declare -a IPADR
+NUM=1
+set -- $MACHINE
+
+while [ $# -ne 0 ] ;do
+    HOST[$NUM]=$1
+    shift
+    USER[$NUM]=$1
+    shift
+    IPADR[$NUM]=$1
+    shift
+    NUM=$((NUM+1))
+done
+finded=1
+crual1=
+crual2=
+crual3=
+location=0
+
+PS3="host to connect >> "
+
+select i in ${HOST[@]}
+do
+
+set -- ${HOST[@]}
+while [ $finded -ne 0 ] && [ $# -ne 0 ] ;do
+    crual1=${HOST[$location]}
+    crual2=${USER[$location]}
+    crual3=${IPADR[$location]}
+    if [ $1 = $i ];then
+    finded=0
+    fi
+    shift
+    location=$((location+1))
+done
+
+echo ssh $crual2@$crual3
+    ssh $crual2@$crual3
+    break;
+done
