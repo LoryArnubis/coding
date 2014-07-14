@@ -6,9 +6,9 @@ set hlsearch
 set smarttab
 syntax on
 "set fileencoding=chinese
-"let &termencoding=&encoding
-"set fileencodings=utf-8,gb18030
-set encoding=utf-8 termencoding=utf-8 fileencoding=utf-8
+let &termencoding=&encoding
+set fileencodings=utf-8,gb18030
+"set encoding=utf-8 termencoding=utf-8 fileencoding=utf-8
 
 "set cursorline "set under line for cursor
 
