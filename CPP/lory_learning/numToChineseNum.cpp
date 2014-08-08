@@ -9,10 +9,9 @@
 #include <iostream>
 #include <vector>
 #include <cmath>
-#include <float.h>
 
 #define LL long long
-#define MIN 0.0000001
+#define MIN 0.00000001
 
 using namespace std;
 
@@ -86,6 +85,9 @@ string unit4(LL inputNum)
 //处理数字转换的主方法
 string numToChineseNum(double num)
 {
+    if (abs(num) >= pow(10, 12)) {
+        return "input out of range";
+    }
     string chineseNum = "";
     bool positive = isPositive(num);
     num = positive?num:(-1)*num;
@@ -108,17 +110,50 @@ string numToChineseNum(double num)
     {
         chineseNum += "整";
     }
-    
     return positive?chineseNum:"负"+chineseNum;
+}
+
+bool test()
+{
+    vector<double> testNum = {
+        1000000000000,
+        999999999999,
+        1234567809.234,
+        1003,
+        12301003020.00,
+        1090.01,
+        0.1,
+        0.123456,
+        -111.229,
+        -100000000000
+    };
+    vector<string> testStr = {
+        "input out of range",
+        "玖仟玖佰玖拾玖亿玖仟玖佰玖拾玖萬玖仟玖佰玖拾玖圆整",
+        "壹拾贰亿叁仟肆佰伍拾陆萬柒仟捌佰零玖圆贰角叁分",
+        "壹仟零叁圆整",
+        "壹佰贰拾叁亿壹佰萬叁仟零贰拾圆整",
+        "壹仟零玖拾圆零壹分",
+        "壹角",
+        "壹角贰分",
+        "负壹佰壹拾壹圆贰角贰分",
+        "负壹仟亿整"
+    };
+    for (int i=0; i<testNum.size(); i++) {
+        if (numToChineseNum(testNum[i]) != testStr[i]) {
+            return false;
+        }
+    }
+    return true;
 }
 
 int main(int argc, const char * argv[])
 {
+    cout<<(test()?"test pass":"test fail")<<endl;
     cout<<"please input a number:"<<endl;
     double input;
     cin >> input;
-    string result = numToChineseNum(input);
-    cout<<"corresponding chinese num is: "<<endl<<result<<endl;
+    cout<<numToChineseNum(input)<<endl;
     return 0;
 }
 
