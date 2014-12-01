@@ -86,3 +86,14 @@ STATIC_URL = '/static/'
 TEMPLATE_DIRS = (
     os.path.join(BASE_DIR,  'templates'),
 )
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'loryblog',
+        'USER': 'lory',
+        'PASSWORD': 'loryisgood',
+        'HOST':'localhost',
+        'PORT':'3306',
+    }
+}
