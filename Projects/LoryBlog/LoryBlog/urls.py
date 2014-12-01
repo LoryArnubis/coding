@@ -9,4 +9,5 @@ urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
     url(r'^$', 'LoryBlog.views.first_page'),
     url(r'^blogapp/', include('blogapp.urls')),
+    url(r'^templay/', include('blogapp.urls')),
 )
