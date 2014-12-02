@@ -85,6 +85,8 @@ STATIC_URL = '/static/'
 
 TEMPLATE_DIRS = (
     os.path.join(BASE_DIR,  'templates/blogapp/'),
+    os.path.join(BASE_DIR,  'templates/'),
+    os.path.join(BASE_DIR,  'templates/views'),
 )
 
 DATABASES = {
@@ -97,3 +99,5 @@ DATABASES = {
         'PORT':'3306',
     }
 }
+
+MEDIA_ROOT="/templates/views/img"

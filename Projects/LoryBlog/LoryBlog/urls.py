@@ -10,4 +10,5 @@ urlpatterns = patterns('',
     url(r'^$', 'LoryBlog.views.first_page'),
     url(r'^blogapp/', include('blogapp.urls')),
     url(r'^templay/', include('blogapp.urls')),
+	(r'^site_media/(?P<path>.*)','django.views.static.serve',{'document_root':'/home/lory/Projects/coding/Projects/LoryBlog/templates/views'}),
 )
