@@ -8,4 +8,5 @@ urlpatterns = patterns('',
     url(r'^$', 'blogapp.views.first_page'),
     url(r'^staff/', 'blogapp.views.staff'),
     url(r'^templay', 'blogapp.views.templay'),
+    url(r'^blogin/', 'blogapp.views.blogin'),
 )

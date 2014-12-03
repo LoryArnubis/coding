@@ -37,7 +37,6 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'blogapp',
-	'blog',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -88,7 +87,6 @@ TEMPLATE_DIRS = (
     os.path.join(BASE_DIR,  'templates/blogapp/'),
     os.path.join(BASE_DIR,  'templates/'),
     os.path.join(BASE_DIR,  'templates/views'),
-    os.path.join(BASE_DIR,  'blog/templates'),
 )
 
 DATABASES = {

@@ -7,7 +7,7 @@ from blogapp.models import Character
 def first_page(request):
 	context = {}
 	context['label'] = 'blogapp'
-	return render(request, 'templay.html', context)
+	return render(request, 'index.html', context)
 
 def staff(request):
 	staff_list = Character.objects.all()
@@ -18,4 +18,9 @@ def staff(request):
 def templay(request):
 	context = {}
 	context['label'] = 'Hello World'
-	return render(request, 'templay.html', context)
+	return render(request, 'index.html', context)
+
+def blogin(request):
+	context = {}
+	context['label'] = 'Hello World in LoryBlog'
+	return render(request, 'blogin.html', context)
