@@ -8,5 +8,4 @@ def first_page(request):
 	context = {}
 	context['label'] = 'Welcome to LoryBlog'
 	return render_to_response('index.html')
-	#return render_to_response(request, 'index.html', context)
 
